@@ -200,11 +200,17 @@ let createPlaylistCards = (playlists) => {
 		likeContainer.classList.add("like-container");
 
 		let likeHeart = document.createElement("img");
-		likeHeart.src = "./assets/img/empty-heart.png";
 		likeHeart.classList.add("like-heart", `${playlist.playlistID}`);
 
 		let likeCounter = document.createElement("p");
 		likeCounter.textContent = `${playlist.likeCount}`;
+
+		if (parseInt(likeCounter.textContent) > 0) {
+			likeHeart.classList.add("clicked");
+			likeHeart.src = "./assets/img/full-heart.png";
+		} else {
+			likeHeart.src = "./assets/img/empty-heart.png";
+		}
 
 		likeHeart.addEventListener("mouseover", () => {
 			if (likeHeart.classList.contains("clicked")) {
