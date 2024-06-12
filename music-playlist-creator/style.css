@@ -3,23 +3,52 @@ body {
 	margin: 0;
 	padding: 0;
 	background-color: #f8f8f8;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100dvh;
+	overflow: hidden;
 }
 
 p {
 	margin: 0;
 }
 
+a {
+	text-decoration: none;
+	color: black;
+}
+
 #banner {
-	height: 3rem;
 	background-color: #eeeeee;
+	padding: 2rem 4rem;
+	border-bottom: 1px solid #c0c0c0;
 	display: flex;
 	align-items: center;
-	padding: 2rem;
+}
+
+#nav {
+	display: flex;
+	flex-direction: row;
+	margin: 0;
+	padding: 0 0rem;
 	border-bottom: 1px solid #c0c0c0;
+	list-style: none;
+	background-color: #eeeeee;
+}
+
+.nav-link {
+	display: flex;
+	justify-content: center;
+	width: 13%;
+}
+
+.first {
+	border-right: 1px solid #c0c0c0;
 }
 
 #footer {
-	height: 4rem;
+	height: 3rem;
 	background-color: #eeeeee;
 	border-top: 1px solid #c0c0c0;
 }
@@ -28,14 +57,14 @@ p {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
+	overflow: scroll;
 }
 
 #playlist-cards {
 	display: grid;
 	grid-template-columns: auto auto auto auto auto auto;
 	gap: 2rem 4rem;
-	padding: 5rem;
+	padding: 2rem;
 }
 
 .card {
@@ -44,6 +73,13 @@ p {
 	border: 2px solid black;
 	border-radius: 10px;
 	padding: 0.5rem;
+}
+
+#add-card {
+	cursor: pointer;
+	background-image: url("./assets/img/add.png");
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .playlist-img {
@@ -83,7 +119,7 @@ p {
 	width: 100%;
 	height: 100%;
 	z-index: 1;
-	overflow: auto;
+	overflow: hidden;
 	background-color: rgba(0, 0, 0, 0.4);
 }
 
@@ -92,7 +128,7 @@ p {
 	flex-direction: column;
 	gap: 2rem;
 	background-color: #fefefe;
-	margin: 6.5% auto;
+	margin: 5.5% auto;
 	padding: 2rem;
 	border: 1px solid #888;
 	width: 80%;
@@ -103,6 +139,15 @@ p {
 	display: flex;
 	flex-direction: row;
 	gap: 2rem;
+}
+
+.edit-btn {
+	margin: 0 1rem 0 0;
+	width: 5rem;
+}
+
+.delete-btn {
+	width: 5rem;
 }
 
 .shuffle-btn {
@@ -160,4 +205,10 @@ p {
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-end;
+}
+
+#playlist-info {
+}
+
+#playlist-songs {
 }

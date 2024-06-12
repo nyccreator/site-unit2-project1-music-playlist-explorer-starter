@@ -4,10 +4,10 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<title>Music Playlist Explorer | Library</title>
-		<link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico" />
+		<title>Music Playlist Explorer | Featured</title>
+		<link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico" />
 
-		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="./style.css" />
 	</head>
 	<body>
 		<header>
@@ -17,26 +17,28 @@
 			</div>
 			<ul id="nav">
 				<li class="nav-link first">
-					<h2><a href="./featured/featured.html">Featured</a></h2>
+					<h2><a href="./featured.html">Featured</a></h2>
 				</li>
 				<li class="nav-link">
-					<h2><a href="./index.html">Library</a></h2>
+					<h2><a href="../index.html">Library</a></h2>
 				</li>
 			</ul>
 		</header>
 
 		<main id="content">
 			<!-- Your main content here -->
-			<div id="playlist-cards">
-				<div id="add-card" class="card"></div>
+			<div id="playlist-info">
+				<img id="playlist-img" src="" />
+				<h3 id="playlist-title"></h3>
 			</div>
+			<div id="playlist-songs"></div>
 		</main>
 
 		<footer>
 			<!-- Your footer content here -->
 			<div id="footer"></div>
 		</footer>
-		<script src="data/data.js"></script>
+		<script src="../data/data.js"></script>
 		<script src="script.js"></script>
 	</body>
 </html>

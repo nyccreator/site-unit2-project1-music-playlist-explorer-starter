@@ -1,0 +1,92 @@
+body {
+	font-family: "Arial", sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #f8f8f8;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100dvh;
+	overflow: hidden;
+}
+
+p {
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+#banner {
+	background-color: #eeeeee;
+	padding: 2rem 4rem;
+	border-bottom: 1px solid #c0c0c0;
+	display: flex;
+	align-items: center;
+}
+
+#nav {
+	display: flex;
+	flex-direction: row;
+	margin: 0;
+	padding: 0 0rem;
+	border-bottom: 1px solid #c0c0c0;
+	list-style: none;
+	background-color: #eeeeee;
+}
+
+.nav-link {
+	display: flex;
+	justify-content: center;
+	width: 13%;
+}
+
+.first {
+	border-right: 1px solid #c0c0c0;
+}
+
+#footer {
+	height: 3rem;
+	background-color: #eeeeee;
+	border-top: 1px solid #c0c0c0;
+}
+
+#content {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	overflow: scroll;
+}
+
+#playlist-info {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 40%;
+	padding: 4rem;
+}
+
+#playlist-img {
+	height: 70%;
+}
+
+#playlist-songs {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 5rem;
+	overflow: scroll;
+	width: 60%;
+	padding: 4rem;
+	align-items: center;
+}
+
+.song-card {
+	height: 20rem;
+	width: 10rem;
+	border: 2px solid black;
+	border-radius: 10px;
+	padding: 0.5rem;
+}

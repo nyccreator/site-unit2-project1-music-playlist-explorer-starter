@@ -41,8 +41,23 @@ let createModal = (playlist) => {
 	let creatorNameModal = document.createElement("h2");
 	creatorNameModal.textContent = playlist.playlist_creator;
 
+	let modalHeaderButtons = document.createElement("div");
+	modalHeaderButtons.classList.add("modal-header-buttons");
+
+	let editBtn = document.createElement("button");
+	editBtn.classList.add("edit-btn");
+	editBtn.textContent = "Edit";
+
+	let deleteBtn = document.createElement("button");
+	deleteBtn.classList.add("delete-btn");
+	deleteBtn.textContent = "Delete";
+
+	modalHeaderButtons.appendChild(editBtn);
+	modalHeaderButtons.appendChild(deleteBtn);
+
 	modalHeaderInfo.appendChild(playlistTitleModal);
 	modalHeaderInfo.appendChild(creatorNameModal);
+	modalHeaderInfo.appendChild(modalHeaderButtons);
 
 	let modalHeader = document.createElement("div");
 	modalHeader.classList.add("modal-header");
@@ -116,6 +131,7 @@ let createModal = (playlist) => {
 
 let createPlaylistCards = (playlists) => {
 	let playlistCards = document.querySelector("#playlist-cards");
+	let addCard = document.querySelector("#add-card");
 	for (playlist of playlists) {
 		let card = document.createElement("div");
 		card.classList.add("card");
@@ -205,6 +221,7 @@ let createPlaylistCards = (playlists) => {
 				// 		playlists[likeHeart.classList[1]].likeCount
 				// );
 			}
+			console.log(data);
 		});
 
 		likeContainer.appendChild(likeHeart);
@@ -217,8 +234,10 @@ let createPlaylistCards = (playlists) => {
 		card.appendChild(playlistImg);
 		card.appendChild(cardInfo);
 
-		playlistCards.appendChild(card);
+		playlistCards.insertBefore(card, addCard);
 	}
 };
 
-createPlaylistCards(data.playlists);
+document.addEventListener("DOMContentLoaded", () => {
+	createPlaylistCards(data.playlists);
+});
