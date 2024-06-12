@@ -14,7 +14,7 @@ let displayFeatured = (playlist) => {
 
 	for (song of playlist.songs) {
 		let playlistSong = document.createElement("div");
-		playlistSong.classList.add("playlist-song");
+		playlistSong.classList.add("song-card");
 
 		let songImg = document.createElement("img");
 		songImg.classList.add("song-img");
@@ -24,6 +24,7 @@ let displayFeatured = (playlist) => {
 		songInfo.classList.add("song-info");
 
 		let songTitle = document.createElement("p");
+		songTitle.classList.add("song-title");
 		songTitle.textContent = song.title;
 
 		let artistName = document.createElement("p");
@@ -32,21 +33,16 @@ let displayFeatured = (playlist) => {
 		let albumName = document.createElement("p");
 		albumName.textContent = song.album;
 
-		let durationContainer = document.createElement("div");
-		durationContainer.classList.add("duration-container");
-
 		let duration = document.createElement("p");
 		duration.textContent = song.duration;
-
-		durationContainer.appendChild(duration);
 
 		songInfo.appendChild(songTitle);
 		songInfo.appendChild(artistName);
 		songInfo.appendChild(albumName);
+		songInfo.appendChild(duration);
 
 		playlistSong.appendChild(songImg);
 		playlistSong.appendChild(songInfo);
-		playlistSong.appendChild(durationContainer);
 
 		playlistSongs.append(playlistSong);
 	}

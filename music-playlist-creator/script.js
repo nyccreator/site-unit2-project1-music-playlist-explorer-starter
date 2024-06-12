@@ -1,3 +1,10 @@
+let deletePlaylist = (playlist) => {
+	data.playlists.splice(`${playlist.playlistID}`, 1);
+	for (let i = 0; i < data.playlists.length; i++) {
+		data.playlists[i].playlistID = i;
+	}
+};
+
 let shuffle = (arr) => {
 	for (let i = 0; i < arr.length; i++) {
 		let j = Math.floor(Math.random() * arr.length);
@@ -51,6 +58,12 @@ let createModal = (playlist) => {
 	let deleteBtn = document.createElement("button");
 	deleteBtn.classList.add("delete-btn");
 	deleteBtn.textContent = "Delete";
+
+	deleteBtn.addEventListener("click", () => {
+		deletePlaylist(playlist);
+		modalOverlay.remove();
+		createPlaylistCards(data.playlists);
+	});
 
 	modalHeaderButtons.appendChild(editBtn);
 	modalHeaderButtons.appendChild(deleteBtn);
@@ -130,8 +143,24 @@ let createModal = (playlist) => {
 };
 
 let createPlaylistCards = (playlists) => {
+	let content = document.querySelector("#content");
+
 	let playlistCards = document.querySelector("#playlist-cards");
-	let addCard = document.querySelector("#add-card");
+
+	if (playlistCards) {
+		playlistCards.remove();
+	}
+	playlistCards = document.createElement("div");
+	playlistCards.id = "playlist-cards";
+
+	content.appendChild(playlistCards);
+
+	let addCard = document.createElement("div");
+	addCard.id = "add-card";
+	addCard.classList.add("card");
+
+	playlistCards.appendChild(addCard);
+
 	for (playlist of playlists) {
 		let card = document.createElement("div");
 		card.classList.add("card");
@@ -147,7 +176,6 @@ let createPlaylistCards = (playlists) => {
 		let playlistTitle = document.createElement("p");
 		playlistTitle.textContent = playlist.playlist_name;
 		playlistTitle.classList.add("playlist-title");
-		playlistTitle.style.fontWeight = "bold";
 
 		playlistImg.addEventListener("click", () => {
 			let modal = document.querySelector(".modal-overlay");
@@ -234,7 +262,7 @@ let createPlaylistCards = (playlists) => {
 		card.appendChild(playlistImg);
 		card.appendChild(cardInfo);
 
-		playlistCards.insertBefore(card, addCard);
+		playlistCards.appendChild(card);
 	}
 };
 
