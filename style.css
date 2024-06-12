@@ -21,7 +21,7 @@ a {
 
 #banner {
 	background-color: #eeeeee;
-	padding: 1rem 4rem;
+	padding: 1rem 3.5rem;
 	border-bottom: 1px solid #c0c0c0;
 	display: flex;
 	align-items: center;
@@ -121,14 +121,6 @@ a {
 	justify-content: center;
 	width: 13%;
 }
-/* 
-#search-bar {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	width: 60%;
-	padding: 0.5rem 3.5rem;
-} */
 
 #search-form {
 	display: flex;
