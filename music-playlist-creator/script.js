@@ -1,8 +1,21 @@
-let deletePlaylist = (playlist) => {
-	data.playlists.splice(`${playlist.playlistID}`, 1);
+let filterPlaylists = (search) => {
+	let filtered = data.playlists.filter((playlist) => {
+		return playlist.playlist_name
+			.toLowerCase()
+			.startsWith(search.toLowerCase());
+	});
+	createPlaylistCards(filtered);
+};
+
+let resetIds = () => {
 	for (let i = 0; i < data.playlists.length; i++) {
 		data.playlists[i].playlistID = i;
 	}
+};
+
+let deletePlaylist = (playlist) => {
+	data.playlists.splice(`${playlist.playlistID}`, 1);
+	resetIds();
 };
 
 let shuffle = (arr) => {
@@ -272,6 +285,154 @@ let createPlaylistCards = (playlists) => {
 	}
 };
 
+let sortPlaylists = (type) => {
+	if (type === "name") {
+		data.playlists.sort((a, b) => {
+			if (a.playlist_name < b.playlist_name) {
+				return -1;
+			} else if (a.playlist_name > b.playlist_name) {
+				return 1;
+			}
+			return 0;
+		});
+	} else if (type === "creator") {
+		data.playlists.sort((a, b) => {
+			if (a.playlist_creator < b.playlist_creator) {
+				return -1;
+			} else if (a.playlist_creator > b.playlist_creator) {
+				return 1;
+			}
+			return 0;
+		});
+	} else if (type === "likes") {
+		data.playlists.sort((a, b) => {
+			if (a.likeCount > b.likeCount) {
+				return -1;
+			} else if (a.likeCount < b.likeCount) {
+				return 1;
+			}
+			return 0;
+		});
+	} else {
+		data.playlists.sort((a, b) => {
+			if (a.dateAdded < b.dateAdded) {
+				return -1;
+			} else if (a.dateAdded > b.dateAdded) {
+				return 1;
+			}
+			return 0;
+		});
+	}
+	resetIds();
+};
+
+let setButtons = () => {
+	let sortBtn = document.querySelector("#sort-util-btn");
+
+	let sortBtnsContainer = document.querySelector("#sort-btns-container");
+	sortBtnsContainer.style.display = "none";
+
+	sortBtn.addEventListener("click", () => {
+		if (searchContainer.style.display != "none") {
+			searchContainer.style.display = "none";
+		}
+
+		if (sortBtnsContainer.style.display === "none") {
+			sortBtnsContainer.style.display = "block";
+		} else {
+			sortBtnsContainer.style.display = "none";
+		}
+	});
+
+	let searchBtn = document.querySelector("#search-util-btn");
+
+	let searchContainer = document.querySelector("#search-container");
+	searchContainer.style.display = "none";
+
+	searchBtn.addEventListener("click", () => {
+		if (sortBtnsContainer.style.display != "none") {
+			sortBtnsContainer.style.display = "none";
+		}
+
+		if (searchContainer.style.display === "none") {
+			searchContainer.style.display = "block";
+		} else {
+			searchContainer.style.display = "none";
+		}
+	});
+
+	let nameSortBtn = document.querySelector("#name-sort-btn");
+	let creatorSortBtn = document.querySelector("#creator-sort-btn");
+	let likesSortBtn = document.querySelector("#likes-sort-btn");
+
+	nameSortBtn.addEventListener("click", () => {
+		let prev = document.querySelector(".current-sort");
+		if (prev) {
+			prev.classList.remove("current-sort");
+
+			if (prev.id === nameSortBtn.id) {
+				sortPlaylists("none");
+				createPlaylistCards(data.playlists);
+				return;
+			}
+		}
+
+		nameSortBtn.classList.add("current-sort");
+		sortPlaylists("name");
+		createPlaylistCards(data.playlists);
+	});
+
+	creatorSortBtn.addEventListener("click", () => {
+		let prev = document.querySelector(".current-sort");
+		if (prev) {
+			prev.classList.remove("current-sort");
+
+			if (prev.id === creatorSortBtn.id) {
+				sortPlaylists("none");
+				createPlaylistCards(data.playlists);
+				return;
+			}
+		}
+
+		creatorSortBtn.classList.add("current-sort");
+		sortPlaylists("creator");
+		createPlaylistCards(data.playlists);
+	});
+
+	likesSortBtn.addEventListener("click", () => {
+		let prev = document.querySelector(".current-sort");
+		if (prev) {
+			prev.classList.remove("current-sort");
+
+			if (prev.id === likesSortBtn.id) {
+				sortPlaylists("none");
+				createPlaylistCards(data.playlists);
+				return;
+			}
+		}
+
+		likesSortBtn.classList.add("current-sort");
+		sortPlaylists("likes");
+		createPlaylistCards(data.playlists);
+	});
+
+	let searchForm = document.querySelector("#search-form");
+	let searchInput = document.querySelector("#search-input");
+	searchForm.addEventListener("submit", (event) => {
+		event.preventDefault();
+		console.log(searchInput.value);
+		filterPlaylists(searchInput.value);
+	});
+};
+
+let setDateAdded = () => {
+	for (let i = 0; i < data.playlists.length; i++) {
+		data.playlists[i].dateAdded = Date.now() + i;
+	}
+};
+
 document.addEventListener("DOMContentLoaded", () => {
+	setDateAdded();
+	setButtons();
 	createPlaylistCards(data.playlists);
 });

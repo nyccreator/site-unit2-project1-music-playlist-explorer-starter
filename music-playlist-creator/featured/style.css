@@ -20,26 +20,46 @@ a {
 	color: black;
 }
 
-.current {
-	color: #d8315b;
-}
-
 #banner {
 	background-color: #eeeeee;
-	padding: 2rem 4rem;
+	padding: 1rem 4rem;
 	border-bottom: 1px solid #c0c0c0;
 	display: flex;
 	align-items: center;
+}
+
+#util {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	border-bottom: 1px solid #c0c0c0;
+	background-color: #eeeeee;
+}
+
+#util-btns {
+	width: 5%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	margin: 0 2rem 0 0;
+}
+
+.util-btn {
+	visibility: hidden;
+	cursor: pointer;
+	width: 30%;
 }
 
 #nav {
 	display: flex;
 	flex-direction: row;
 	margin: 0;
-	padding: 0 0rem;
-	border-bottom: 1px solid #c0c0c0;
+	padding: 0;
 	list-style: none;
-	background-color: #eeeeee;
+	width: 90%;
 }
 
 .nav-link {
@@ -50,6 +70,10 @@ a {
 
 .first {
 	border-right: 1px solid #c0c0c0;
+}
+
+.current {
+	color: #d8315b;
 }
 
 #footer {
@@ -83,7 +107,7 @@ a {
 	flex-wrap: wrap;
 	gap: 3rem 5rem;
 	overflow: scroll;
-	width: 60%;
+	width: 70%;
 	padding: 4rem;
 	align-items: center;
 }
@@ -100,7 +124,7 @@ a {
 }
 
 .song-info {
-	height: 40%;
+	height: 30%;
 	padding: 0.5rem;
 	display: flex;
 	flex-direction: column;
