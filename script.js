@@ -172,6 +172,11 @@ let createPlaylistCards = (playlists) => {
 	addCard.id = "add-card";
 	addCard.classList.add("card");
 
+	let addPlaylistModal = document.querySelector(".add-modal-overlay");
+	addCard.addEventListener("click", () => {
+		addPlaylistModal.style.display = "block";
+	});
+
 	playlistCards.appendChild(addCard);
 
 	for (playlist of playlists) {
@@ -288,18 +293,22 @@ let createPlaylistCards = (playlists) => {
 let sortPlaylists = (type) => {
 	if (type === "name") {
 		data.playlists.sort((a, b) => {
-			if (a.playlist_name < b.playlist_name) {
+			if (a.playlist_name.toLowerCase() < b.playlist_name.toLowerCase()) {
 				return -1;
-			} else if (a.playlist_name > b.playlist_name) {
+			} else if (
+				a.playlist_name.toLowerCase() > b.playlist_name.toLowerCase()
+			) {
 				return 1;
 			}
 			return 0;
 		});
 	} else if (type === "creator") {
 		data.playlists.sort((a, b) => {
-			if (a.playlist_creator < b.playlist_creator) {
+			if (a.playlist_creator.toLowerCase() < b.playlist_creator.toLowerCase()) {
 				return -1;
-			} else if (a.playlist_creator > b.playlist_creator) {
+			} else if (
+				a.playlist_creator.toLowerCase() > b.playlist_creator.toLowerCase()
+			) {
 				return 1;
 			}
 			return 0;
@@ -422,6 +431,53 @@ let setButtons = () => {
 		event.preventDefault();
 		console.log(searchInput.value);
 		filterPlaylists(searchInput.value);
+	});
+
+	let addPlaylistModal = document.querySelector(".add-modal-overlay");
+	let addModalClose = document.querySelector(".add-modal-close");
+	let addForm = document.querySelector("#add-form");
+
+	addModalClose.addEventListener("click", () => {
+		addPlaylistModal.style.display = "none";
+		addForm.reset();
+	});
+
+	let addNameInput = document.querySelector("#add-name");
+	let addCreatorInput = document.querySelector("#add-creator");
+	let addSongTitleInput = document.querySelector("#add-song-title");
+	let addSongArtistInput = document.querySelector("#add-song-artist");
+	let addSongAlbumInput = document.querySelector("#add-song-album");
+	let addSongDurationInput = document.querySelector("#add-song-duration");
+
+	addForm.addEventListener("submit", (event) => {
+		event.preventDefault();
+		data.playlists.push({
+			playlistID: data.playlists.length,
+			playlist_name: `${addNameInput.value}`,
+			playlist_creator: `${addCreatorInput.value}`,
+			playlist_art: "./assets/img/song.png",
+			likeCount: 0,
+			songs: [
+				{
+					songID:
+						data.playlists[data.playlists.length - 1].songs[
+							data.playlists[data.playlists.length - 1].songs.length - 1
+						] + 1,
+					title: `${addSongTitleInput.value}`,
+					artist: `${addSongArtistInput.value}`,
+					album: `${addSongAlbumInput.value}`,
+					cover_art: "./assets/img/song.png",
+					duration: `${addSongDurationInput.value}`,
+				},
+			],
+		});
+
+		addPlaylistModal.style.display = "none";
+		addForm.reset();
+
+		createPlaylistCards(data.playlists);
+
+		console.log(data.playlists);
 	});
 };
 

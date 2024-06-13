@@ -68,33 +68,48 @@
 			</div>
 		</header>
 
+		<div class="add-modal-overlay">
+			<div class="add-modal-content">
+				<div class="add-modal-header">
+					<h1>Add Playlist</h1>
+					<img class="add-modal-close" src="./assets/img/close.png" />
+				</div>
+				<form id="add-form">
+          <input class="add-save-btn" type="submit"/>
+					<div>
+						<label" for="add-name">Name:</label>
+						<input type="text" id="add-name" name="add-name" required />
+					</div>
+					<div>
+						<label for="add-creator">Creator:</label>
+						<input type="text" id="add-creator" name="add-creator" required />
+					</div>
+					<div>
+						<label for="add-song-title">Song Title:</label>
+						<input type="text" id="add-song-title" name="add-song-title" required />
+					</div>
+					<div>
+						<label for="add-song-artist">Song Artist:</label>
+						<input type="text" id="add-song-artist" name="add-song-artist" required />
+					</div>
+          <div>
+						<label for="add-song-album">Song Album:</label>
+						<input type="text" id="add-song-album" name="add-song-album" required />
+					</div>
+					<div>
+						<label for="add-song-duration">Song Duration:</label>
+						<input type="text" id="add-song-duration" name="add-song-duration" required />
+					</div>
+				</form>
+			</div>
+		</div>
+
 		<main id="content">
 			<!-- Your main content here -->
 			<div id="playlist-cards">
-				<div id="add-card" class="card"></div>
+				
 			</div>
 		</main>
-
-		<!-- <div class="modal-overlay">
-			<div class="modal-content">
-				<div class="modal-header">
-					<img class="modal-img" src="" />
-					<div class="separator">
-						<div class="modal-header-info">
-							<h1>playlist_name</h1>
-							<h2>playlist_creator</h2>
-							<div class="modal-header-buttons">
-								<button class="edit-btn">Edit</button
-								><button class="delete-btn">Delete</button>
-							</div>
-						</div>
-						<img class="modal-close" src="./assets/img/close.png" />
-					</div>
-				</div>
-				<button class="shuffle-btn">Shuffle</button>
-				<div class="modal-songs"></div>
-			</div>
-		</div> -->
 
 		<footer>
 			<!-- Your footer content here -->
