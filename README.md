@@ -4,7 +4,7 @@ Submitted by: **Andrey Fernandez**
 
 Estimated time spent: **15** hours spent in total
 
-Deployed Application (optional): [Music Playlist Explorer Deployed Site](https://nyccreator.github.io/site-unit2-project1-music-playlist-explorer-starter/)
+Deployed Application (optional):
 
 ### Application Features
 
