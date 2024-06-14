@@ -205,7 +205,6 @@ a {
 }
 
 .modal-overlay {
-	/* display: none; */
 	position: fixed;
 	left: 0;
 	top: 0;
@@ -234,18 +233,49 @@ a {
 	gap: 2rem;
 }
 
+.add-save-btn {
+	width: 8rem;
+	background-color: #d8315b;
+	border-radius: 5px;
+	padding: 0.5rem;
+	font-size: medium;
+	color: white;
+	border: 0px;
+	cursor: pointer;
+}
+
 .edit-btn {
+	background-color: #d8315b;
+	border-radius: 5px;
+	padding: 0.5rem;
+	font-size: medium;
+	color: white;
+	border: 0px;
 	margin: 0 1rem 0 0;
 	width: 5rem;
 	cursor: pointer;
 }
 
 .delete-btn {
+	background-color: #d8315b;
+	border-radius: 5px;
+	padding: 0.5rem;
+	font-size: medium;
+	color: white;
+	border: 0px;
+	margin: 0 1rem 0 0;
 	width: 5rem;
 	cursor: pointer;
 }
 
 .shuffle-btn {
+	background-color: #d8315b;
+	border-radius: 5px;
+	padding: 0.5rem;
+	font-size: medium;
+	color: white;
+	border: 0px;
+	margin: 0 1rem 0 0;
 	width: 10rem;
 	cursor: pointer;
 }
@@ -304,7 +334,14 @@ a {
 }
 
 .add-save-btn {
-	width: 10rem;
+	width: 8rem;
+	background-color: #d8315b;
+	border-radius: 5px;
+	padding: 0.5rem;
+	font-size: medium;
+	color: white;
+	border: 0px;
+	cursor: pointer;
 }
 
 .add-modal-overlay {
@@ -322,12 +359,12 @@ a {
 .add-modal-content {
 	display: flex;
 	flex-direction: column;
-	gap: 2rem;
+
 	background-color: #fefefe;
-	margin: 5.5% auto;
+	margin: 10% auto;
 	padding: 2rem;
 	border: 1px solid #888;
-	width: 80%;
+	width: 20%;
 	border-radius: 25px;
 }
 
@@ -348,4 +385,16 @@ a {
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
+}
+
+.input-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.add-input {
+	height: 1.5rem;
+	width: 13rem;
 }

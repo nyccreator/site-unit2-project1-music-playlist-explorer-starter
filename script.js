@@ -470,6 +470,7 @@ let setButtons = () => {
 					duration: `${addSongDurationInput.value}`,
 				},
 			],
+			dateAdded: Date.now(),
 		});
 
 		addPlaylistModal.style.display = "none";

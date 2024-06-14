@@ -71,34 +71,70 @@
 		<div class="add-modal-overlay">
 			<div class="add-modal-content">
 				<div class="add-modal-header">
-					<h1>Add Playlist</h1>
+					<h1>Create Playlist</h1>
 					<img class="add-modal-close" src="./assets/img/close.png" />
 				</div>
 				<form id="add-form">
-          <input class="add-save-btn" type="submit"/>
-					<div>
-						<label" for="add-name">Name:</label>
-						<input type="text" id="add-name" name="add-name" required />
+					<input class="add-save-btn" type="submit" />
+					<div class="input-container">
+						<label for="add-name">Name:</label>
+						<input
+							class="add-input"
+							type="text"
+							id="add-name"
+							name="add-name"
+							required
+						/>
 					</div>
-					<div>
+					<div class="input-container">
 						<label for="add-creator">Creator:</label>
-						<input type="text" id="add-creator" name="add-creator" required />
+						<input
+							class="add-input"
+							type="text"
+							id="add-creator"
+							name="add-creator"
+							required
+						/>
 					</div>
-					<div>
+					<div class="input-container">
 						<label for="add-song-title">Song Title:</label>
-						<input type="text" id="add-song-title" name="add-song-title" required />
+						<input
+							class="add-input"
+							type="text"
+							id="add-song-title"
+							name="add-song-title"
+							required
+						/>
 					</div>
-					<div>
+					<div class="input-container">
 						<label for="add-song-artist">Song Artist:</label>
-						<input type="text" id="add-song-artist" name="add-song-artist" required />
+						<input
+							class="add-input"
+							type="text"
+							id="add-song-artist"
+							name="add-song-artist"
+							required
+						/>
 					</div>
-          <div>
+					<div class="input-container">
 						<label for="add-song-album">Song Album:</label>
-						<input type="text" id="add-song-album" name="add-song-album" required />
+						<input
+							class="add-input"
+							type="text"
+							id="add-song-album"
+							name="add-song-album"
+							required
+						/>
 					</div>
-					<div>
+					<div class="input-container">
 						<label for="add-song-duration">Song Duration:</label>
-						<input type="text" id="add-song-duration" name="add-song-duration" required />
+						<input
+							class="add-input"
+							type="text"
+							id="add-song-duration"
+							name="add-song-duration"
+							required
+						/>
 					</div>
 				</form>
 			</div>
@@ -106,9 +142,7 @@
 
 		<main id="content">
 			<!-- Your main content here -->
-			<div id="playlist-cards">
-				
-			</div>
+			<div id="playlist-cards"></div>
 		</main>
 
 		<footer>
